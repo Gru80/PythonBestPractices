@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ Module Title.
 
 here is the description of the module.

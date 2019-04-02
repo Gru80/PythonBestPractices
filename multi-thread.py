@@ -6,6 +6,9 @@ import logging
 import threading
 import time
 
+#for the ThreadPoolExecuter Demo
+import concurrent.futures
+
 def thread_function(name):
     """ A simple function that just logs and sleeps in between """
     logging.info("Thread %s: starting", name)
@@ -27,3 +30,7 @@ if __name__ == "__main__":
     for index, thread in enumerate(threads):
         thread.join()
         logging.info("Thread %s done", thread)
+
+    logging.info("-"*30)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as exec:
+        exec.map(thread_function, range(3))

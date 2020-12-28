@@ -20,6 +20,7 @@ if __name__ == "__main__":
     logging.basicConfig(format=fmt, level=logging.INFO,
                         datefmt="%H:%M:%S")
 
+    # First demo with basic tools
     threads = list()
     for i in range(3):
         logging.info("Starting " + str(i))
@@ -32,5 +33,7 @@ if __name__ == "__main__":
         logging.info("Thread %s done", thread)
 
     logging.info("-"*30)
+
+    # Second demo with ThreadPoolExecutor
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as exec:
         exec.map(thread_function, range(3))
